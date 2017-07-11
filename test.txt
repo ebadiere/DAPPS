@@ -1,0 +1,62 @@
+Demo:
+
+Success - payout:
+
+1. start testRPC and show accounts.
+	web3.fromWei(web3.toDecimal(web3.eth.getBalance(web3.eth.accounts[0]), 'ether'));
+ 
+2. clickbankEscrow = web3.eth.accounts[0]
+
+3. vendor = web3.eth.accounts[1]
+	customer = web3.eth.accounts[2]
+
+4. web3.fromWei(web3.toDecimal(web3.eth.getBalance(clickbankEscrow), 'ether'));
+
+5. deploy contracts, truffle migrate --reset
+
+6. web3.fromWei(web3.toDecimal(web3.eth.getBalance(clickbankEscrow), 'ether'));
+
+clickbankEscrow = web3.eth.accounts[0]
+vendor = web3.eth.accounts[1]
+customer = web3.eth.accounts[2]
+
+7. Settlement.deployed().then(function(instance){settlement=instance})
+
+8. web3.fromWei(web3.toDecimal(web3.eth.getBalance(clickbankEscrow), 'ether'));
+
+9. web3.fromWei(web3.toDecimal(web3.eth.getBalance(customer), 'ether'));
+
+10. theCustomerBank = web3.eth.accounts[3]
+
+11. web3.eth.sendTransaction({from: theCustomerBank, to: customer, value: web3.toWei(10, 'ether')})
+
+12. web3.fromWei(web3.toDecimal(web3.eth.getBalance(customer), 'ether'));
+
+13. web3.fromWei(web3.toDecimal(web3.eth.getBalance(vendor), 'ether'));
+
+14. web3.fromWei(web3.toDecimal(web3.eth.getBalance(clickbankEscrow), 'ether'));
+
+15. settlement.setup(vendor, customer)
+
+16. settlement.deposit({from: customer, value: web3.toWei(10, 'ether')})
+
+17. settlement.approve({ from: vendor }) 
+
+18. settlement.approve({ from: customer })
+
+19. web3.fromWei(web3.toDecimal(web3.eth.getBalance(customer), 'ether'));
+
+20. web3.fromWei(web3.toDecimal(web3.eth.getBalance(vendor), 'ether'));
+
+21. web3.fromWei(web3.toDecimal(web3.eth.getBalance(clickbankEscrow), 'ether'));
+
+
+22. shutdown testRpc
+
+Abort - refund
+
+1. start testRPC again
+
+
+
+
